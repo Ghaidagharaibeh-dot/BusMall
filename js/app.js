@@ -13,7 +13,7 @@ let clicklimit = 5;
 
 //let pushnamearr=[];
 let shownarr = [];
-//let votearr = [];
+let votearr = [];
 
 function Pro(name, source) {
     this.name = name;
@@ -21,7 +21,7 @@ function Pro(name, source) {
     this.vote = 0;
     this.shown = 0;
     //pushnamearr.puch(this.name);
-    //votearr.push(this.vote);
+    votearr.push(this.vote);
     shownarr.push(this.shown);
     Pro.allproduct.push(this);
 
@@ -151,8 +151,9 @@ function clickeventforimg(event){
 
 function secondclickevet() {
 
-    //chartfun();
      creatlist();
+     chartfun();
+
          //button.removeEventListener('click', secondclickevet);
 
 
@@ -164,8 +165,8 @@ function secondclickevet() {
 function creatlist() {
     let unorderlist = document.getElementById('listelm')
     for (let i = 0; i < Pro.allproduct.length; i++) {
-     //   votearr.push(Pro.allproduct[i].vote);
-       // shownarr.push(Pro.allproduct[i].shown);
+        votearr.push(Pro.allproduct[i].vote);
+        shownarr.push(Pro.allproduct[i].shown);
 
         let list = document.createElement('li');
         unorderlist.appendChild(list);
@@ -173,4 +174,41 @@ function creatlist() {
     }
 
 }
+
+function chartfun(){
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels:['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'] ,
+            datasets: [{
+                label: '# of Votes',
+                data: votearr,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.4)',
+        
+                ],
+                borderWidth: 1
+            },
+            {
+                label: '# of Votes',
+                data: shownarr,
+                backgroundColor: [
+                    'rgba(400, 99, 132, 0.4)',
+        
+                ],
+                borderWidth: 1
+            }
+        ]
+        },
+        
+    });
+    }
+    
+
+
+
+
+
 
