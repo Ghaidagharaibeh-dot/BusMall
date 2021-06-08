@@ -9,7 +9,7 @@ let secondproductindex;
 let thirdproductindex;
 
 let countsClick = 0;
-let clicklimit = 5;
+let clicklimit = 25;
 
 let pushnamearr = [];
 let shownarr = [];
@@ -177,6 +177,21 @@ function creatlist() {
 
 }
 
+function setTtemFun() {
+    let x = JSON.stringify(Pro.allproduct);
+    localStorage.setItem('product', x);
+}
+function getItemFun() {
+    let y = localStorage.getItem('product');
+    let z = JSON.parse(y);
+    if(z){
+        Pro.allproduct=z;
+        return;
+
+    }
+
+}
+
 
 
 
@@ -201,7 +216,9 @@ function chartfun() {
                 label: '# of Votes',
                 data: shownarr,
                 backgroundColor: [
-                    'rgba(400, 99, 132, 0.4)',
+                    'rgba(400, 80, 150, 1)',
+
+
 
                 ],
                 borderWidth: 1
@@ -211,10 +228,5 @@ function chartfun() {
 
     });
 }
-
-
-
-
-
 
 
