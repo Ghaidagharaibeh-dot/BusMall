@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+
+#section{
+    box-sizing: border-box;
+    width: 50%;
+    height: 25%;
+    display: inline-block;
+    border: 4px solid blue;
+}
+#chart{
+    box-sizing: border-box;
+    width: 25%;
+    height: 25%;
+}

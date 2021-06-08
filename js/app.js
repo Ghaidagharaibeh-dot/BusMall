@@ -187,11 +187,11 @@ function getItemFun() {
     if(z){
         Pro.allproduct=z;
         return;
+
     }
 
 }
 
-getItemFun();
 
 
 
@@ -218,6 +218,8 @@ function chartfun() {
                 backgroundColor: [
                     'rgba(400, 80, 150, 1)',
 
+
+
                 ],
                 borderWidth: 1
             },
@@ -226,4 +228,5 @@ function chartfun() {
 
     });
 }
+
 
