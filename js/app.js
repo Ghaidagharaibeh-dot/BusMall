@@ -11,7 +11,7 @@ let thirdproductindex;
 let countsClick = 0;
 let clicklimit = 5;
 
-//let pushnamearr=[];
+let pushnamearr = [];
 let shownarr = [];
 let votearr = [];
 
@@ -20,10 +20,11 @@ function Pro(name, source) {
     this.source = source;
     this.vote = 0;
     this.shown = 0;
-    //pushnamearr.puch(this.name);
-    votearr.push(this.vote);
-    shownarr.push(this.shown);
+
     Pro.allproduct.push(this);
+    pushnamearr.push(this.name);
+   // votearr.push(this.vote);
+    //shownarr.push(this.shown);
 
 
 }
@@ -31,8 +32,8 @@ function Pro(name, source) {
 
 //Pro.votearr = []
 Pro.allproduct = [];
-console.log(Pro.allproduct);
-console.log(shownarr);
+//console.log(Pro.allproduct);
+//console.log(shownarr);
 
 
 new Pro('bag', 'img/bag.jpg');
@@ -53,6 +54,9 @@ new Pro('tauntaun', 'img/tauntaun.jpg');
 new Pro('unicorn', 'img/unicorn.jpg');
 new Pro('usb', 'img/usb.gif');
 new Pro('wine-glass', 'img/wine-glass.jpg');
+
+//console.log(Pro.allproduct)
+
 
 function randomfun() {
     let randomNum = Math.floor(Math.random() * Pro.allproduct.length);
@@ -105,60 +109,57 @@ section.addEventListener('click', clickeventforimg)
 
 
 let button;
-function clickeventforimg(event){
+function clickeventforimg(event) {
     countsClick++;
     console.log(event.target.id);
 
     if (clicklimit > countsClick) {
-        if (event.target.id === 'firsproduct') {
+        if (event.target.id === 'firstimg') {
             Pro.allproduct[firsproductindex].vote++;
-        } else if (event.target.id === 'secondproduct') {
-            Pro.allproduct[secondproductindex].vote++;
-           
-
-            //console.log(Pro)
         }
-
-
-        else if (event.target.id === 'thirdproduct') {
+        else if (event.target.id === 'secondimg') {
+            Pro.allproduct[secondproductindex].vote++;
+        }
+        else if (event.target.id === 'thirdimg') {
             Pro.allproduct[thirdproductindex].vote++;
         }
-        
-        
 
-    
+        imgs();
+        setTtemFun();
 
-    imgs();}
+    }
 
 
 
     else {
-    // gettingList();
+        // gettingList();
 
+        let button = document.getElementById('buttonElm');
+        button.addEventListener('click', secondclickevet);
+        section.removeEventListener('click', clickeventforimg);
+
+        //firsproduct.removeEventListener('click',clickeventforimg);
+        //secondproduct.removeEventListener('click',clickeventforimg);
+        //thirdproduct.removeEventListener('click',clickeventforimg);
+
+
+
+
+    }
+}
+
+//button.addEventListener('click', secondclickevet);
+
+function secondclickevet(event) {
+
+    creatlist();
     let button = document.getElementById('buttonElm');
-    section.removeEventListener('click', clickeventforimg);
- button.addEventListener('click', secondclickevet);
-    //firsproduct.removeEventListener('click',clickeventforimg);
-//secondproduct.removeEventListener('click',clickeventforimg);
-//thirdproduct.removeEventListener('click',clickeventforimg);
-
-
-
+ button.removeEventListener('click', secondclickevet);
+    chartfun();
 
 }
 
-}
 
-function secondclickevet() {
-
-     creatlist();
-     chartfun();
-
-         //button.removeEventListener('click', secondclickevet);
-
-
-
-}
 
 //clickeventforimg();
 
@@ -171,23 +172,28 @@ function creatlist() {
         let list = document.createElement('li');
         unorderlist.appendChild(list);
         list.textContent = `${Pro.allproduct[i].name} has ${Pro.allproduct[i].vote} Votes ${Pro.allproduct[i].shown} shown`;
+
     }
 
 }
 
-function chartfun(){
+
+
+
+function chartfun() {
+    //console.log(votearr,shownarr)
 
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels:['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'] ,
+            labels: pushnamearr,
             datasets: [{
                 label: '# of Votes',
                 data: votearr,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.4)',
-        
+
                 ],
                 borderWidth: 1
             },
@@ -196,16 +202,16 @@ function chartfun(){
                 data: shownarr,
                 backgroundColor: [
                     'rgba(400, 99, 132, 0.4)',
-        
+
                 ],
                 borderWidth: 1
-            }
-        ]
+            },
+            ]
         },
-        
+
     });
-    }
-    
+}
+
 
 
 
