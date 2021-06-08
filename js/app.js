@@ -216,7 +216,7 @@ function chartfun() {
                 label: '# of Votes',
                 data: shownarr,
                 backgroundColor: [
-                    'rgba(400, 99, 132, 0.4)',
+                    'rgba(400, 80, 150, 1)',
 
                 ],
                 borderWidth: 1
