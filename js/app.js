@@ -186,9 +186,12 @@ function getItemFun() {
     let z = JSON.parse(y);
     if(z){
         Pro.allproduct=z;
-        return;
 
+        return;
+ main
     }
+    return;
+
 
 }
 
