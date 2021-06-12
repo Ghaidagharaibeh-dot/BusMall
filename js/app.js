@@ -186,13 +186,15 @@ function getItemFun() {
     let z = JSON.parse(y);
     if(z){
         Pro.allproduct=z;
+
+        return;
+ main
     }
     return;
 
 
 }
 
-getItemFun();
 
 
 
@@ -219,6 +221,8 @@ function chartfun() {
                 backgroundColor: [
                     'rgba(400, 80, 150, 1)',
 
+
+
                 ],
                 borderWidth: 1
             },
@@ -227,4 +231,5 @@ function chartfun() {
 
     });
 }
+
 
