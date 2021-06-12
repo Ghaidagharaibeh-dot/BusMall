@@ -1,0 +1,65 @@
+*{
+    box-sizing: border-box;
+}
+body  {
+    
+  background-color:#eed7b8;
+ 
+
+
+ }
+ header {
+   box-sizing: border-box;
+   border: 2px solid cornflowerblue;
+
+
+  }
+
+   header h1 {
+    text-align: center;
+font-size: xx-large;
+
+   }
+
+
+
+  
+  #firstimg {
+    border-radius: 6px;
+    transition-property: background , border-radius;
+    transition-duration: .2s, 1s;
+    transition-timing-function: linear;
+
+  }   
+ 
+  #firstimg:hover {
+    border-radius: 50%;}
+
+
+    #secondimg {
+      border-radius: 6px;
+      transition-property: background , border-radius;
+      transition-duration: .2s, 1s;
+      transition-timing-function: linear;
+  
+    }   
+   
+    #secondimg:hover {
+      border-radius: 50%;}
+
+
+
+     
+        #thirdimg {
+          border-radius: 6px;
+          transition-property: background , border-radius;
+          transition-duration: .2s, 1s;
+          transition-timing-function: linear;
+      
+        }   
+       
+        #thirdimg:hover {
+          border-radius: 50%;}
+
+
+
